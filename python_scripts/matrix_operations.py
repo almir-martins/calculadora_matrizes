@@ -6,23 +6,110 @@ import numpy as np
 # ===================================
 # Adição de matriz
 def soma_matriz(A, B):
-    pass
+    try:
+        C = A + B
+
+    # Matriz não contém somente números
+    except np.core._exceptions._UFuncNoLoopError:
+        print("Os elementos precisam ser números!")
+
+    # Matrizes de tamanhos diferentes
+    except ValueError:
+        print("Matrizes de tamanhos diferentes!")
+
+    # except Exception as e:
+    #     print(e)
+    #     print("Eroooou")
+
+    else:
+        print(f"Tamanho A = {len(A)}")
+        print(f"Tamanho B = {len(B)}")
+        print(f"A = \n{A}")
+        print()
+        print(f"B = \n{B}")
+        print()
+        print(f"A+B = \n{C}")
+        print()
+        print("TUDO FUNCIONANDO OK")
+        print()
 
 
 # Subtração de matriz
 def subtrai_matriz(A, B):
-    pass
+    try:
+        C = A - B
+
+    # Matriz não contém somente números
+    except np.core._exceptions._UFuncNoLoopError:
+        print("Os elementos precisam ser números!")
+
+    # Matrizes de tamanhos diferentes
+    except ValueError:
+        print("Matrizes de tamanhos diferentes!")
+
+    # except Exception as e:
+    #     print(e)
+    #     print("Eroooou")
+
+    else:
+        print(f"Tamanho A = {len(A)}")
+        print(f"Tamanho B = {len(B)}")
+        print(f"A = \n{A}")
+        print()
+        print(f"B = \n{B}")
+        print()
+        print(f"A+B = \n{C}")
+        print()
+        print("TUDO FUNCIONANDO OK")
+        print()
 
 
 # Produto de matriz
 def multiplica_matriz(A, B):
-    pass
+    try:
+        C = np.dot(A, B)
+
+    # Matriz não contém somente números
+    except np.core._exceptions._UFuncNoLoopError:
+        print("Os elementos precisam ser números!")
+
+    # Matrizes de tamanhos diferentes
+    except ValueError:
+        print("Matrizes de tamanhos diferentes!")
+
+    # except Exception as e:
+    #     print(e)
+    #     print("Eroooou")
+
+    else:
+        print(f"A = \n{A}")
+        print()
+        print(f"B = \n{B}")
+        print()
+        print(f"A*B = \n{C}")
+        print()
+        print("TUDO FUNCIONANDO OK")
+        print()
 
 
 # Divisão de matriz
 def divide_matriz(A, B):
 
-    pass
+    if np.shape(B) < 1:
+        print(f"A matriz precisa ser quadrada")
+    elif np.shape(B)[0] != np.shape(B)[1]:
+        print(f"A matriz precisa ser quadrada")
+    else:
+        C = np.dot(A, np.linalg.inv(B))
+
+    print(f"A = \n{A}")
+    print()
+    print(f"B = \n{B}")
+    print()
+    print(f"A/B = \n{C}")
+    print()
+    print("TUDO FUNCIONANDO OK")
+    print()
 
 
 # ===================================
@@ -38,17 +125,20 @@ def multiplica_escalar(A, num):
 # ===================================
 # Cálculo de Determinante
 def calcula_determinante(A):
-    pass
+    det = np.linalg.det(A)
+    print(f"Det = {det}")
 
 
 # Cálculo de inversa
 def calcula_inversa(A):
-    pass
+    inv = np.linalg.inv(A)
+    print(f"Inv = {inv}")
 
 
 # Cálculo de Transposta
 def calcula_transposta(A):
-    pass
+    transposta = A.transpose()
+    print(f"Transposta = {transposta}")
 
 
 # ====================================================
@@ -73,4 +163,4 @@ print()
 # calcula_inversa(A)
 # calcula_transposta(A)
 # np.linalg.inv(Q)
-# print(len(np.shape(O)))
+print(len(np.shape(O)))
