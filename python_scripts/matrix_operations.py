@@ -1,122 +1,114 @@
 import numpy as np
 
+# Verifica se a matriz é quadrada
+def is_square(m):
+    try:
+        if m.shape[0] == m.shape[1]:
+            return True
+        else:
+            return False
+    except:
+        if m.shape[0] == 1:
+            return True
+        return False
+
+
+# Verifica se as matrizes são de mesma ordem
+def is_same_order(m, n):
+    if m.shape == n.shape:
+        return True
+    return False
+
 
 # ===================================
 # As quatro operações básicas
 # ===================================
 # Adição de matriz
 def soma_matriz(A, B):
-    try:
-        C = A + B
+    if (is_square(A)) and (is_square(B)) and (is_same_order(A, B)):
+        try:
+            return A + B
 
-    # Matriz não contém somente números
-    except np.core._exceptions._UFuncNoLoopError:
-        print("Os elementos precisam ser números!")
+        # Matriz não contém somente números
+        except np.core._exceptions._UFuncNoLoopError:
+            print("Os elementos precisam ser números!")
 
-    # Matrizes de tamanhos diferentes
-    except ValueError:
-        print("Matrizes de tamanhos diferentes!")
-
-    # except Exception as e:
-    #     print(e)
-    #     print("Eroooou")
+        except Exception as e:
+            return "Erro desconhecido"
 
     else:
-        print(f"Tamanho A = {len(A)}")
-        print(f"Tamanho B = {len(B)}")
-        print(f"A = \n{A}")
-        print()
-        print(f"B = \n{B}")
-        print()
-        print(f"A+B = \n{C}")
-        print()
-        print("TUDO FUNCIONANDO OK")
-        print()
+        return "As matrizes precisam ser quadradas e de mesma ordem"
 
 
 # Subtração de matriz
 def subtrai_matriz(A, B):
-    try:
-        C = A - B
+    if (is_square(A)) and (is_square(B)) and (is_same_order(A, B)):
+        try:
+            return A - B
 
-    # Matriz não contém somente números
-    except np.core._exceptions._UFuncNoLoopError:
-        print("Os elementos precisam ser números!")
+        # Matriz não contém somente números
+        except np.core._exceptions._UFuncNoLoopError:
+            print("Os elementos precisam ser números!")
 
-    # Matrizes de tamanhos diferentes
-    except ValueError:
-        print("Matrizes de tamanhos diferentes!")
-
-    # except Exception as e:
-    #     print(e)
-    #     print("Eroooou")
+        except Exception as e:
+            return "Erro desconhecido"
 
     else:
-        print(f"Tamanho A = {len(A)}")
-        print(f"Tamanho B = {len(B)}")
-        print(f"A = \n{A}")
-        print()
-        print(f"B = \n{B}")
-        print()
-        print(f"A+B = \n{C}")
-        print()
-        print("TUDO FUNCIONANDO OK")
-        print()
+        return "As matrizes precisam ser quadradas e de mesma ordem"
 
 
 # Produto de matriz
 def multiplica_matriz(A, B):
     try:
-        C = np.dot(A, B)
+        return np.dot(A, B)
 
     # Matriz não contém somente números
     except np.core._exceptions._UFuncNoLoopError:
-        print("Os elementos precisam ser números!")
+        return "Os elementos precisam ser números!"
 
     # Matrizes de tamanhos diferentes
     except ValueError:
-        print("Matrizes de tamanhos diferentes!")
+        return "Matrizes de tamanhos diferentes!"
 
-    # except Exception as e:
-    #     print(e)
-    #     print("Eroooou")
-
-    else:
-        print(f"A = \n{A}")
-        print()
-        print(f"B = \n{B}")
-        print()
-        print(f"A*B = \n{C}")
-        print()
-        print("TUDO FUNCIONANDO OK")
-        print()
+    except Exception as e:
+        return "Erro desconhecido"
 
 
 # Divisão de matriz
 def divide_matriz(A, B):
+    if (is_square(A)) and (is_square(B)) and (is_same_order(A, B)):
+        try:
+            return np.dot(A, np.linalg.inv(B))
 
-    if np.shape(B) < 1:
-        print(f"A matriz precisa ser quadrada")
-    elif np.shape(B)[0] != np.shape(B)[1]:
-        print(f"A matriz precisa ser quadrada")
+        # Matriz não contém somente números
+        except np.core._exceptions._UFuncNoLoopError:
+            print("Os elementos precisam ser números!")
+
+        except Exception as e:
+            return "Erro desconhecido"
+
     else:
-        C = np.dot(A, np.linalg.inv(B))
-
-    print(f"A = \n{A}")
-    print()
-    print(f"B = \n{B}")
-    print()
-    print(f"A/B = \n{C}")
-    print()
-    print("TUDO FUNCIONANDO OK")
-    print()
+        return "As matrizes precisam ser quadradas e de mesma ordem"
 
 
 # ===================================
 # Operações básicas com escalar
 # ===================================
+def soma_escalar(A, num):
+    pass
+
+
+def subtrai_escalar(A, num):
+    pass
+
+
 # Produto por escalar
 def multiplica_escalar(A, num):
+    pass
+
+
+# Divisão por escalar
+def divide_escalar(A, num):
     pass
 
 
@@ -125,24 +117,21 @@ def multiplica_escalar(A, num):
 # ===================================
 # Cálculo de Determinante
 def calcula_determinante(A):
-    det = np.linalg.det(A)
-    print(f"Det = {det}")
+    return np.linalg.det(A)
 
 
 # Cálculo de inversa
 def calcula_inversa(A):
-    inv = np.linalg.inv(A)
-    print(f"Inv = {inv}")
+    return np.linalg.inv(A)
 
 
 # Cálculo de Transposta
 def calcula_transposta(A):
-    transposta = A.transpose()
-    print(f"Transposta = {transposta}")
+    return A.transpose()
 
 
 # ====================================================
-#                    Área de teste
+#                    Área de testes
 # ====================================================
 
 M = np.array([["2", 2, 2], [2, 2, 2]])
@@ -153,8 +142,10 @@ P = np.array([1, 2, 3])
 Q = np.array([1, 2, 3])
 R = np.array([[1], [2], [3]])
 
+print(P.shape)
 print()
-# soma_matriz(M, N)
+# soma_matriz(O, R)
+
 # subtrai_matriz(P, Q)
 # multiplica_matriz(P, R)
 # divide_matriz(N, O)
@@ -163,4 +154,7 @@ print()
 # calcula_inversa(A)
 # calcula_transposta(A)
 # np.linalg.inv(Q)
-print(len(np.shape(O)))
+
+# divide_matriz(O, R)
+# print(len(R))
+# print(is_square(P))
