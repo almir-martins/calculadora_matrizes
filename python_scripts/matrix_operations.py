@@ -1,3 +1,4 @@
+from types import new_class
 import numpy as np
 
 # Verifica se a matriz é quadrada
@@ -142,7 +143,7 @@ P = np.array([1, 2, 3])
 Q = np.array([1, 2, 3])
 R = np.array([[1], [2], [3]])
 
-print(P.shape)
+calcula_inversa(O)
 print()
 # soma_matriz(O, R)
 
