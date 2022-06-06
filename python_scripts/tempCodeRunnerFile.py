@@ -1,2 +1,3 @@
-print(len(R))
-# print(P.shape)
+N = np.array([[1, 2, 3], [1, 2, 3], [1, 2, 3]])
+
+# print(N)
