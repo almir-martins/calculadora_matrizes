@@ -1,6 +1,5 @@
 import numpy as np
 
-
 class Calculadora_Matriz:
 
     # Verifica se a matriz é quadrada
