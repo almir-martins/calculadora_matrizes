@@ -96,17 +96,66 @@ separador = lin5col6.write(" ")
 # Área com os botões
 botao1, botao2, botao3 = st.columns([3, 3, 3])
 if botao1.button("Inversa"):
-    st.write("")
+    st.write("A inversa da matriz A ")
+    st.latex(
+        r"""
+            \begin{bmatrix}
+            2 & 1\\
+            5 & 3
+            \end{bmatrix}
+        """
+    )
+    st.write("é:")
+    st.latex(
+        r"""
+            A^{-1} =
+            \begin{bmatrix}
+            3 & -1\\
+            -5 & 2
+            \end{bmatrix}
+        """
+    )
 else:
     st.write("")
 
 if botao2.button("Determinante"):
-    st.write("")
+    st.write("O determinante da matriz A ")
+    st.latex(
+        r"""
+            \begin{bmatrix}
+            1 & 9 & 5\\
+            3 & 7 & 8\\
+            10 & 4 & 2
+            \end{bmatrix}
+        """
+    )
+    st.write("é:")
+    st.write("Det A = -7")
+
+
 else:
     st.write("")
 
 if botao3.button("Transposta"):
-    st.write("")
+    st.write("A transposta da matriz A ")
+    st.latex(
+        r"""
+            \begin{bmatrix}
+            5 & 8 & 2\\
+            13 & 7 & -1
+            \end{bmatrix}
+        """
+    )
+    st.write("é:")
+    st.latex(
+        r"""
+            \begin{bmatrix}
+            5 & 13\\
+            8 & 7\\
+            2 & -1
+            \end{bmatrix}
+        """
+    )
 else:
     st.write("")
 
@@ -137,7 +186,7 @@ with st.sidebar:
         + "Para calcular calcular a transposta\n"
         + "de uma matriz 3x2 preencha os elem\n"
         + "A11, A12, A21, A22, A31, A32\n"
-        + "e pressiono o botão 'Transposta'"
+        + "e pressione o botão 'Transposta'"
     )
 # ============================================
 # Menu lateral - Fim

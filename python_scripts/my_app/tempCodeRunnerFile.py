@@ -21,10 +21,12 @@ st.write(
                 "Tatiane Pinheiro Ruela",
                 "Valeria Gramlich Mistrello",
             ],
-            "RA": [1824151, 1823082, 1836029, 1836480, 1831626, 1823009, 1825164],
+            "RA": [1824151, 20, 1836029, 1836480, 1831626, 0, 0],
         }
     )
 )
+
+
 # ============================================
 # Menu lateral - Início
 # ============================================
@@ -33,21 +35,22 @@ st.sidebar.title("Instruções")
 # Using "with" notation
 with st.sidebar:
     st.text(
-        "Nosso projeto baseia-se na apresen-\n"
-        + "tação de uma ferramenta denominada\n"
-        + "Calculadora de matrizes que objetiva\n"
-        + "auxiliar alunos e professores no\n"
-        + "cálculo e conferência de resultados\n"
-        + "das operações com matrizes, fazendo\n"
-        + "com que o docente tenha disponibi-\n"
-        + "lidade  para um olhar mais atento\n"
-        + "aos alunos, podendo assim, identifi-\n"
-        + "ficar as dificuldades dos mesmos na\n"
-        + "hora de calcular manualmente, e \n"
-        + "ainda, contribuir de uma maneira \n"
-        + "mais efetiva para a resolução de \n"
-        + "dúvidas.\n"
-        # e ainda, contribuir de uma maneira mais efetiva para a resolução de dúvidas. "
+        "Para preencher a matriz corretamente\n"
+        + "insira os valores nas posições dos\n"
+        + "elementos desejados e deixe os \n"
+        + "demais em branco (sem preencher).\n"
+        + "\n"
+        + "Exemplo 1:\n"
+        + "Para somar duas matrizes quadradas\n"
+        + "2x2 preencha os elementos\n"
+        + "A11, A12, A21, A22 (Matriz A)\n"
+        + "B11, B12, B21, B22 (Matriz B)\n"
+        + "e pressione o botão 'Soma (A + B)'\n\n"
+        + "Exemplo 2:\n"
+        + "Para calcular calcular a transposta\n"
+        + "de uma matriz 3x2 preencha os elem\n"
+        + "A11, A12, A21, A22, A31, A32\n"
+        + "e pressione o botão 'Transposta'"
     )
 # ============================================
 # Menu lateral - Fim

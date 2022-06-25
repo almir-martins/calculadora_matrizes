@@ -177,17 +177,27 @@ else:
 # ============================================
 # Menu lateral - Início
 # ============================================
-st.sidebar.title("Menu")
+st.sidebar.title("Instruções")
 
 # Using "with" notation
 with st.sidebar:
-    add_radio = st.radio(
-        "Selecione a opção desejada:",
-        (
-            "Operações com duas matrizes \n(soma, subtração, divisão, multiplicação)",
-            "Operações com uma matriz \n(Inversa, Determinante, Transposta)",
-            "Operações com escalar \n(soma, subtração, divisão, multiplicação)",
-        ),
+    st.text(
+        "Para preencher a matriz corretamente\n"
+        + "insira os valores nas posições dos\n"
+        + "elementos desejados e deixe os \n"
+        + "demais em branco (sem preencher).\n"
+        + "\n"
+        + "Exemplo 1:\n"
+        + "Para somar duas matrizes quadradas\n"
+        + "2x2 preencha os elementos\n"
+        + "A11, A12, A21, A22 (Matriz A)\n"
+        + "B11, B12, B21, B22 (Matriz B)\n"
+        + "e pressione o botão 'Soma (A + B)'\n\n"
+        + "Exemplo 2:\n"
+        + "Para calcular calcular a transposta\n"
+        + "de uma matriz 3x2 preencha os elem\n"
+        + "A11, A12, A21, A22, A31, A32\n"
+        + "e pressione o botão 'Transposta'"
     )
 # ============================================
 # Menu lateral - Fim

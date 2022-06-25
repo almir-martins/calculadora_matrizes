@@ -1,5 +1,6 @@
 import numpy as np
 
+
 class Calculadora_Matriz:
 
     # Verifica se a matriz é quadrada
@@ -95,18 +96,74 @@ class Calculadora_Matriz:
     # Operações básicas com escalar
     # ===================================
     def soma_escalar(self, A, num):
-        return A + num
+        """
+        Soma os elementos de uma matriz com um escalar\n.
+
+        Parameters
+        A : list
+            A matriz a ser somada
+        num : int
+            O escalar a ser somado
+        :return: A matriz resultante da soma
+        """
+        if ("," in num) or ("." in num):
+            num = round(float(num), 1)
+        else:
+            num = int(num)
+        return np.array(A) + num
 
     def subtrai_escalar(self, A, num):
-        return A - num
+        """
+        Subtrai os elementos de uma matriz de um escalar\n.
+
+        Parameters
+        A : list
+            A matriz a ser subtraída
+        num : int
+            O escalar a ser subtraído
+        :return: A matriz resultante da subtração
+        """
+        if ("," in num) or ("." in num):
+            num = round(float(num), 1)
+        else:
+            num = int(num)
+        return np.array(A) - num
 
     # Produto por escalar
     def multiplica_escalar(self, A, num):
-        return A * num
+        """
+        Multiplica os elementos de uma matriz por um escalar\n.
+
+        Parameters
+        A : list
+            A matriz a ser multiplicada
+        num : int
+            O escalar a ser multiplicado
+        :return: A matriz resultante da multiplicação
+        """
+        if ("," in num) or ("." in num):
+            num = round(float(num), 1)
+        else:
+            num = int(num)
+        return np.array(A) * num
 
     # Divisão por escalar
     def divide_escalar(self, A, num):
-        return A / num
+        """
+        Divide os elementos de uma matriz por um escalar\n.
+
+        Parameters
+        A : list
+            A matriz a ser Dividida
+        num : int
+            O escalar a ser dividido
+        :return: A matriz resultante da divisão
+        """
+        if ("," in num) or ("." in num):
+            num = round(float(num), 1)
+        else:
+            num = int(num)
+        return np.array(A) / num
 
     # ===================================
     # Operações complementares
