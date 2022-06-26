@@ -1,7 +1,6 @@
 # ============================================
 # Implementando a interface via Streamlit
 # ============================================
-from black import out
 import streamlit as st
 import numpy as np
 import matrix_operations
@@ -113,14 +112,6 @@ inputs_A = [
     [A41, A42, A43, A44, A45],
     [A51, A52, A53, A54, A55],
 ]
-
-# inputs_B = [
-#     [B11, B12, B13, B14, B15],
-#     [B21, B22, B23, B24, B25],
-#     [B31, B32, B33, B34, B35],
-#     [B41, B42, B43, B44, B45],
-#     [B51, B52, B53, B54, B55],
-# ]
 
 # Botões da página
 botao1, botao2, botao3 = st.columns([3, 3, 3])
