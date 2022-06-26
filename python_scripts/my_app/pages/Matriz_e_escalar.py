@@ -1,7 +1,6 @@
 # ============================================
 # Implementando a interface via Streamlit
 # ============================================
-from black import out
 import streamlit as st
 import numpy as np
 import matrix_operations
@@ -12,7 +11,6 @@ st.title("Calculadora de Matrizes")
 # =================================================
 # Importação da classe de operações e formulários
 # =================================================
-N = np.array([[1, 2, 3], [1, 2, 3], [1, 2, 3]])
 cm = matrix_operations.Calculadora_Matriz()
 cf = check_forms.Forms()
 
@@ -125,14 +123,6 @@ inputs_A = [
     [A51, A52, A53, A54, A55],
 ]
 
-# inputs_B = [
-#     [B11, B12, B13, B14, B15],
-#     [B21, B22, B23, B24, B25],
-#     [B31, B32, B33, B34, B35],
-#     [B41, B42, B43, B44, B45],
-#     [B51, B52, B53, B54, B55],
-# ]
-
 scalar = B11
 
 # Botões
@@ -198,7 +188,7 @@ if botao3.button("Multiplicação (A * k)"):
 
 
 if botao4.button("Divisão (A / k)"):
-    if int(B11) == 0:
+    if B11 == "0":
         st.write("ATENÇÃO - DIVISÃO POR ZERO")
         st.write("Operação impossível!")
     else:

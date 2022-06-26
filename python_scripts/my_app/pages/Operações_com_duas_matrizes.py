@@ -2,8 +2,17 @@
 # Implementando a interface via Streamlit
 # ============================================
 import streamlit as st
+import numpy as np
+import matrix_operations
+import check_forms
 
 st.title("Calculadora de Matrizes")
+
+# =================================================
+# Importação da classe de operações e formulários
+# =================================================
+cm = matrix_operations.Calculadora_Matriz()
+cf = check_forms.Forms()
 
 # =================================================
 # Página para operações com duas matrizes - Início
@@ -147,28 +156,105 @@ B54 = lin5col10.text_input("B54")
 B55 = lin5col11.text_input("B55")
 
 
-# ===================
-# Área com os botões
+# ================================
+# Área com os botões e métodos
+# ================================
+inputs_A = [
+    [A11, A12, A13, A14, A15],
+    [A21, A22, A23, A24, A25],
+    [A31, A32, A33, A34, A35],
+    [A41, A42, A43, A44, A45],
+    [A51, A52, A53, A54, A55],
+]
+
+inputs_B = [
+    [B11, B12, B13, B14, B15],
+    [B21, B22, B23, B24, B25],
+    [B31, B32, B33, B34, B35],
+    [B41, B42, B43, B44, B45],
+    [B51, B52, B53, B54, B55],
+]
+
+# Botões da página
 botao1, botao2, botao3, botao4 = st.columns([2, 3, 3, 3])
 if botao1.button("Soma (A + B)"):
-    st.write("")
-else:
-    st.write("")
+    # Se os dados da matriz A não estiverem corretos
+    if len(cf.get_matrix_A(inputs_A)) < 1:
+        st.write("ATENÇÃO - A matriz A deve ter formato válido.")
+    # Se os dados da matriz B não estiverem corretos
+    elif len(cf.get_matrix_A(inputs_B)) < 1:
+        st.write("ATENÇÃO - A matriz B deve ter formato válido.")
+    else:
+        # Calcula o resultado chamando a classe em matrix_operations.py
+        result = cm.soma_matriz(cf.get_matrix_A(inputs_A), cf.get_matrix_A(inputs_B))
+
+        # Transforma o resultado em Latex
+        lines = str(result).replace("[", "").replace("]", "").splitlines()
+        rv = [r"\begin{bmatrix}"]
+        rv += ["  " + " & ".join(l.split()) + r"\\" for l in lines]
+        rv += [r"\end{bmatrix}"]
+        st.write("A soma das matrizes A e B é:")
+        st.latex("".join(rv))
 
 if botao2.button("Subtração (A - B)"):
-    st.write("")
-else:
-    st.write("")
+    # Se os dados da matriz A não estiverem corretos
+    if len(cf.get_matrix_A(inputs_A)) < 1:
+        st.write("ATENÇÃO - A matriz A deve ter formato válido.")
+    # Se os dados da matriz B não estiverem corretos
+    elif len(cf.get_matrix_A(inputs_B)) < 1:
+        st.write("ATENÇÃO - A matriz B deve ter formato válido.")
+    else:
+        # Calcula o resultado chamando a classe em matrix_operations.py
+        result = cm.subtrai_matriz(cf.get_matrix_A(inputs_A), cf.get_matrix_A(inputs_B))
+
+        # Transforma o resultado em Latex
+        lines = str(result).replace("[", "").replace("]", "").splitlines()
+        rv = [r"\begin{bmatrix}"]
+        rv += ["  " + " & ".join(l.split()) + r"\\" for l in lines]
+        rv += [r"\end{bmatrix}"]
+        st.write("A Subtração das matrizes A e B é:")
+        st.latex("".join(rv))
 
 if botao3.button("Multiplicação (A * B)"):
-    st.write("")
-else:
-    st.write("")
+    # Se os dados da matriz A não estiverem corretos
+    if len(cf.get_matrix_A(inputs_A)) < 1:
+        st.write("ATENÇÃO - A matriz A deve ter formato válido.")
+    # Se os dados da matriz B não estiverem corretos
+    elif len(cf.get_matrix_A(inputs_B)) < 1:
+        st.write("ATENÇÃO - A matriz B deve ter formato válido.")
+    else:
+        # Calcula o resultado chamando a classe em matrix_operations.py
+        result = cm.multiplica_matriz(
+            cf.get_matrix_A(inputs_A), cf.get_matrix_A(inputs_B)
+        )
+
+        # Transforma o resultado em Latex
+        lines = str(result).replace("[", "").replace("]", "").splitlines()
+        rv = [r"\begin{bmatrix}"]
+        rv += ["  " + " & ".join(l.split()) + r"\\" for l in lines]
+        rv += [r"\end{bmatrix}"]
+        st.write("A multiplicação das matrizes A e B:")
+        st.latex("".join(rv))
 
 if botao4.button("Divisão (A / B)"):
-    st.write("")
-else:
-    st.write("")
+    # Se os dados da matriz A não estiverem corretos
+    if len(cf.get_matrix_A(inputs_A)) < 1:
+        st.write("ATENÇÃO - A matriz A deve ter formato válido.")
+    # Se os dados da matriz B não estiverem corretos
+    elif len(cf.get_matrix_A(inputs_B)) < 1:
+        st.write("ATENÇÃO - A matriz B deve ter formato válido.")
+    else:
+        # Calcula o resultado chamando a classe em matrix_operations.py
+        result = cm.divide_matriz(cf.get_matrix_A(inputs_A), cf.get_matrix_A(inputs_B))
+
+        # Transforma o resultado em Latex
+        lines = str(result).replace("[", "").replace("]", "").splitlines()
+        rv = [r"\begin{bmatrix}"]
+        rv += ["  " + " & ".join(l.split()) + r"\\" for l in lines]
+        rv += [r"\end{bmatrix}"]
+        st.write("A divisão das matrizes A e B:")
+        st.latex("".join(rv))
+
 
 # =================================================
 # Página para operações com duas matrizes - Fim

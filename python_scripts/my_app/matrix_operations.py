@@ -2,9 +2,21 @@ import numpy as np
 
 
 class Calculadora_Matriz:
+    """
+    Classe que implementa todas as operações com matrizes e escalres da aplicaçao\n.
+    """
 
-    # Verifica se a matriz é quadrada
-    def is_square(self, m):
+    def is_square(self, A):
+        """
+        Verifica se a matriz passada como parâmetro é quadrada\n.
+
+        Parameters
+        A : list
+            A  matriz
+
+        :return: Boolean True se a matriz for quadrada ou False se não
+        """
+        m = np.array(A)
         try:
             if m.shape[0] == m.shape[1]:
                 return True
@@ -17,6 +29,19 @@ class Calculadora_Matriz:
 
     # Verifica se as matrizes são de mesma ordem
     def is_same_order(self, m, n):
+        """
+        Verifica se duas matrizes passada como parâmetros são de mesma ordem\n.
+
+        Parameters
+        m : list
+            A  matriz
+
+        Parameters
+        n : list
+            A  matriz
+
+        :return: Boolean True se a matriz forem da mesma ordem ou False se não
+        """
         if m.shape == n.shape:
             return True
         return False
@@ -25,7 +50,19 @@ class Calculadora_Matriz:
     # As quatro operações básicas
     # ===================================
     # Adição de matriz
-    def soma_matriz(self, A, B):
+    def soma_matriz(self, A_, B_):
+        """
+        Soma duas matrizes\n.
+
+        Parameters
+        A : list
+            A primeira matriz a ser somada
+        B : List
+            A segunda matriz a ser somada
+        :return: Uma matriz resultante da soma das matrizes A e B
+        """
+        A = np.array(A_)
+        B = np.array(B_)
         if (self.is_square(A)) and (self.is_square(B)) and (self.is_same_order(A, B)):
             try:
                 return A + B
@@ -36,12 +73,23 @@ class Calculadora_Matriz:
 
             except Exception as e:
                 return "Erro desconhecido"
-
         else:
             return "As matrizes precisam ser quadradas e de mesma ordem"
 
     # Subtração de matriz
-    def subtrai_matriz(self, A, B):
+    def subtrai_matriz(self, A_, B_):
+        """
+        Soma duas matrizes\n.
+
+        Parameters
+        A : list
+            A primeira matriz a ser somada
+        B : List
+            A segunda matriz a ser somada
+        :return: Uma matriz resultante da soma das matrizes A e B
+        """
+        A = np.array(A_)
+        B = np.array(B_)
         if (self.is_square(A)) and (self.is_square(B)) and (self.is_same_order(A, B)):
             try:
                 return A - B
@@ -52,12 +100,21 @@ class Calculadora_Matriz:
 
             except Exception as e:
                 return "Erro desconhecido"
-
         else:
             return "As matrizes precisam ser quadradas e de mesma ordem"
 
     # Produto de matriz
     def multiplica_matriz(self, A, B):
+        """
+        Multiplica duas matrizes\n.
+
+        Parameters
+        A : list
+            A primeira matriz
+        B : List
+            A segunda matriz
+        :return: Uma matriz resultante da multiplicação das matrizes A e B
+        """
         try:
             return np.dot(A, B)
 
@@ -73,12 +130,21 @@ class Calculadora_Matriz:
             return "Erro desconhecido"
 
     # Divisão de matriz
-    def divide_matriz(self, A, B):
-        if (
-            (is_squaself.is_squarere(A))
-            and (self.is_square(B))
-            and (self.is_same_order(A, B))
-        ):
+    def divide_matriz(self, A_, B_):
+        """
+        Divide duas matrizes\n.
+
+        Parameters
+        A : list
+            A primeira matriz
+        B : List
+            A segunda matriz
+        :return: Uma matriz resultante da divisão das matrizes A e B
+        """
+        A = np.array(A_)
+        B = np.array(B_)
+
+        if (self.is_square(A)) and (self.is_square(B)) and (self.is_same_order(A, B)):
             try:
                 return np.dot(A, np.linalg.inv(B))
 
@@ -170,10 +236,33 @@ class Calculadora_Matriz:
     # ===================================
     # Cálculo de Determinante
     def calcula_determinante(self, A):
-        return np.linalg.det(A)
+        """
+        Calcula o determinante da matriz A\n.
+
+        Parameters
+        A : list
+            A matriz para cálculo do determinante
+
+        :return: O determninate DetA
+        """
+        if not self.is_square(A):
+            return "A matriz deve ser quadrada"
+        try:
+            return np.linalg.det(A)
+        except:
+            return "Matriz não possui determninante."
 
     # Cálculo de inversa
     def calcula_inversa(self, A):
+        """
+        Calcula a matriz inversa caso exista\n.
+
+        Parameters
+        A : list
+            A matriz para cálculo da Inversa
+
+        :return: A matriz Inversa (list) ou mensagem erro (str)
+        """
         if not self.is_square(A):
             return "A matriz deve ser quadrada"
         try:
@@ -183,9 +272,14 @@ class Calculadora_Matriz:
 
     # Cálculo de Transposta
     def calcula_transposta(self, A):
-        return A.transpose()
+        """
+        Calcula a matriz transposta da matrriz A\n.
 
+        Parameters
+        A : list
+            A matriz para cálculo da Inversa
 
-# N = np.array([[1, 2, 3], [1, 2, 3], [1, 2, 3]])
-# cm = Calculadora_Matriz()
-# print(cm.calcula_inversa(N))
+        :return: A matriz tranposta
+        """
+        m = np.array(A)
+        return m.transpose()

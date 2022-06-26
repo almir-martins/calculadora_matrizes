@@ -1,9 +1,20 @@
 # ============================================
 # Implementando a interface via Streamlit
 # ============================================
+from black import out
 import streamlit as st
+import numpy as np
+import matrix_operations
+import check_forms
 
 st.title("Calculadora de Matrizes")
+
+# =================================================
+# Importação da classe de operações e formulários
+# =================================================
+cm = matrix_operations.Calculadora_Matriz()
+cf = check_forms.Forms()
+
 
 # =================================================
 # Página para operações com uma matriz - Início
@@ -92,72 +103,73 @@ A54 = lin5col4.text_input("A54")
 A55 = lin5col5.text_input("A55")
 separador = lin5col6.write(" ")
 
-# ===================
-# Área com os botões
+# ================================
+# Área com os botões e métodos
+# ================================
+inputs_A = [
+    [A11, A12, A13, A14, A15],
+    [A21, A22, A23, A24, A25],
+    [A31, A32, A33, A34, A35],
+    [A41, A42, A43, A44, A45],
+    [A51, A52, A53, A54, A55],
+]
+
+# inputs_B = [
+#     [B11, B12, B13, B14, B15],
+#     [B21, B22, B23, B24, B25],
+#     [B31, B32, B33, B34, B35],
+#     [B41, B42, B43, B44, B45],
+#     [B51, B52, B53, B54, B55],
+# ]
+
+# Botões da página
 botao1, botao2, botao3 = st.columns([3, 3, 3])
 if botao1.button("Inversa"):
-    st.write("A inversa da matriz A ")
-    st.latex(
-        r"""
-            \begin{bmatrix}
-            2 & 1\\
-            5 & 3
-            \end{bmatrix}
-        """
-    )
-    st.write("é:")
-    st.latex(
-        r"""
-            A^{-1} =
-            \begin{bmatrix}
-            3 & -1\\
-            -5 & 2
-            \end{bmatrix}
-        """
-    )
-else:
-    st.write("")
+    # Se os dados da matriz A não estiverem corretos
+    if len(cf.get_matrix_A(inputs_A)) < 1:
+        st.write("ATENÇÃO - A matriz A deve ter formato válido.")
+    else:
+        # Calcula o resultado chamando a classe em matrix_operations.py
+        result = cm.calcula_inversa(cf.get_matrix_A(inputs_A))
+
+        # Transforma o resultado em Latex
+        lines = str(result).replace("[", "").replace("]", "").splitlines()
+        rv = [r"A^{-1}=\begin{bmatrix}"]
+        rv += ["  " + " & ".join(l.split()) + r"\\" for l in lines]
+        rv += [r"\end{bmatrix}"]
+        st.write("A matriz inversa da matriz A é:")
+        st.latex("".join(rv))
 
 if botao2.button("Determinante"):
-    st.write("O determinante da matriz A ")
-    st.latex(
-        r"""
-            \begin{bmatrix}
-            1 & 9 & 5\\
-            3 & 7 & 8\\
-            10 & 4 & 2
-            \end{bmatrix}
-        """
-    )
-    st.write("é:")
-    st.write("Det A = -7")
+    # Se os dados da matriz A não estiverem corretos
+    if len(cf.get_matrix_A(inputs_A)) < 1:
+        st.write("ATENÇÃO - A matriz A deve ter formato válido.")
+    else:
+        # Calcula o resultado chamando a classe em matrix_operations.py
+        result = cm.calcula_determinante(cf.get_matrix_A(inputs_A))
 
-
-else:
-    st.write("")
+        # Transforma o resultado em Latex
+        lines = str(result).replace("[", "").replace("]", "").splitlines()
+        st.write("O determinante da matriz A é:")
+        if type(result) == float:
+            result = round(result, 1)
+        st.write("Det A = ", result)
 
 if botao3.button("Transposta"):
-    st.write("A transposta da matriz A ")
-    st.latex(
-        r"""
-            \begin{bmatrix}
-            5 & 8 & 2\\
-            13 & 7 & -1
-            \end{bmatrix}
-        """
-    )
-    st.write("é:")
-    st.latex(
-        r"""
-            \begin{bmatrix}
-            5 & 13\\
-            8 & 7\\
-            2 & -1
-            \end{bmatrix}
-        """
-    )
-else:
-    st.write("")
+    # Se os dados da matriz A não estiverem corretos
+    if len(cf.get_matrix_A(inputs_A)) < 1:
+        st.write("ATENÇÃO - A matriz A deve ter formato válido.")
+    else:
+        # Calcula o resultado chamando a classe em matrix_operations.py
+        result = cm.calcula_transposta(cf.get_matrix_A(inputs_A))
+
+        # Transforma o resultado em Latex
+        lines = str(result).replace("[", "").replace("]", "").splitlines()
+        rv = [r"A^{t}=\begin{bmatrix}"]
+        rv += ["  " + " & ".join(l.split()) + r"\\" for l in lines]
+        rv += [r"\end{bmatrix}"]
+        st.write("A matriz inversa da matriz A é:")
+        st.latex("".join(rv))
 
 
 # =================================================
