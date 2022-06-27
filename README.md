@@ -6,6 +6,7 @@ Desenvolvido: Almir Martins Lopes
 
 Este trabalho consistiu em criar uma calculadora de matrizes on-line para auxiliar os alunos de séries diversas no aprendizado de operações com matrizes, tanto em sala de aula como em aulas à distãncia. A calculadora também tem a finalidade de servir como ferramenta de apoio à professores no ensino de álgebra e na inserção da tecnologia como um contraponto ao estudo tradicional lousa-caderno.
 
+![Planejandamento](https://raw.githubusercontent.com/almir-martins/ calculadora_matrizes/main/img/plan.png)
 ## Passo 1
 
 Na primeira fase realizei o planejamento da aplicação em modelos gerais. Partindo de um brainstorming das ideias que poderiam ser aplicadas foi surgindo o esboço da aplicação:
