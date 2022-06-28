@@ -59,6 +59,6 @@ Esta é a etapa final. Com a aplicação rodando e realizado todos os testes em 
 - Fazer deploy no servidor de produção;
 - Testar novamente.
 
-![Matriz e escalar](https://raw.githubusercontent.com/almir-martins/calculadora_matrizes/main/img/matriz.png)
-![Operações com duas matrizes](https://raw.githubusercontent.com/almir-martins/calculadora_matrizes/main/img/matriz2.png)
-![Operações com uma matriz](https://raw.githubusercontent.com/almir-martins/calculadora_matrizes/main/img/matriz3.png)
+![Matriz e escalar](https://raw.githubusercontent.com/almir-martins/calculadora_matrizes/main/img/matriz.jpg)
+![Operações com duas matrizes](https://raw.githubusercontent.com/almir-martins/calculadora_matrizes/main/img/matriz2.jpg)
+![Operações com uma matriz](https://raw.githubusercontent.com/almir-martins/calculadora_matrizes/main/img/matriz3.jpg)
