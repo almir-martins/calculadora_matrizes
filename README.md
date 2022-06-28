@@ -25,7 +25,7 @@ Partindo do esboço, desenvolvendo as funcionalidades que estariam na aplicaçã
 - Como estruturar as interfaces do usuário;
 
 ## Passo 3
-Chega a hora de por a mão na massa e iniciar a codificação. Já com a estrutura da aplicação planejada com suas classes e interfaces o processo de desenvolvimento fica mais simplificado. 
+Chega a hora de por a mão na massa e iniciar a codificação. Já com a estrutura da aplicação planejada com suas classes e interfaces o processo de desenvolvimento fica mais simplificado.
 
 - Separar as responsabilidades macro por classes;
 - Criar os métodos e classes usando o paradigma da orientação a objetos;
@@ -41,6 +41,7 @@ Com o backend já desenvolvido começo a desenvolver a interface. No passo 1 já
 - Criação dos formulários e botões;
 - Tratamento dos formulários para envio ao backend;
 
+![Aplicação](https://raw.githubusercontent.com/almir-martins/calculadora_matrizes/main/img/serv.png)
 ## Passo 5
 Nessa etapa começo a integrar o frontend com o backend testando as funcionalidades e os casos de uso em servidor local testando todo o funcionamento da aplicação e sua qualidade visual.
 
