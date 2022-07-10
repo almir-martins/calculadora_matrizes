@@ -243,6 +243,10 @@ if botao4.button("Divisão (A / B)"):
     # Se os dados da matriz B não estiverem corretos
     elif len(cf.get_matrix_A(inputs_B)) < 1:
         st.write("ATENÇÃO - A matriz B deve ter formato válido.")
+
+    # Verifica se a matriz B é inversível
+    elif cm.calcula_inversa(cf.get_matrix_A(inputs_B)) == "Matriz não inversível":
+        st.write("Matriz B não inversível - não é possível executar a operação.")
     else:
         # Calcula o resultado chamando a classe em matrix_operations.py
         result = cm.divide_matriz(cf.get_matrix_A(inputs_A), cf.get_matrix_A(inputs_B))

@@ -63,7 +63,7 @@ class Calculadora_Matriz:
         """
         A = np.array(A_)
         B = np.array(B_)
-        if (self.is_square(A)) and (self.is_square(B)) and (self.is_same_order(A, B)):
+        if self.is_same_order(A, B):
             try:
                 return A + B
 
@@ -74,7 +74,7 @@ class Calculadora_Matriz:
             except Exception as e:
                 return "Erro desconhecido"
         else:
-            return "As matrizes precisam ser quadradas e de mesma ordem"
+            return "As matrizes precisam ser de mesma ordem"
 
     # Subtração de matriz
     def subtrai_matriz(self, A_, B_):
@@ -90,7 +90,7 @@ class Calculadora_Matriz:
         """
         A = np.array(A_)
         B = np.array(B_)
-        if (self.is_square(A)) and (self.is_square(B)) and (self.is_same_order(A, B)):
+        if self.is_same_order(A, B):
             try:
                 return A - B
 
@@ -101,7 +101,7 @@ class Calculadora_Matriz:
             except Exception as e:
                 return "Erro desconhecido"
         else:
-            return "As matrizes precisam ser quadradas e de mesma ordem"
+            return "As matrizes precisam ser de mesma ordem"
 
     # Produto de matriz
     def multiplica_matriz(self, A, B):
@@ -124,7 +124,7 @@ class Calculadora_Matriz:
 
         # Matrizes de tamanhos diferentes
         except ValueError:
-            return "Matrizes de tamanhos diferentes!"
+            return "Para multiplicar duas matrizes o nº de colunas da primeira \ndeve ser igual ao nº de linhas da segunda."
 
         except Exception as e:
             return "Erro desconhecido"
@@ -248,7 +248,7 @@ class Calculadora_Matriz:
         if not self.is_square(A):
             return "A matriz deve ser quadrada"
         try:
-            return np.linalg.det(A)
+            return round(np.linalg.det(A), 2)
         except:
             return "Matriz não possui determninante."
 
